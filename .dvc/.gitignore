@@ -2,3 +2,6 @@
 /tmp
 /cache
 /config
+.dvc/config.yml
+.env
+
