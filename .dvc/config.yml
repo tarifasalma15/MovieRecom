@@ -1,0 +1,6 @@
+[core]
+    remote = dvc-remote-movies-recommendations
+['remote "dvc-remote-movies-recommendations"']
+    url = gdrive://1E9Ytih4xWFfx1D6eKpWHc-lzIeJHZLRT
+    gdrive_client_id = ${gdrive_client_secret}
+    gdrive_client_secret = ${gdrive_client_id}
