@@ -1,0 +1,5 @@
+outs:
+- md5: c80866b94d38bc031d470bf0b376a172
+  size: 283520
+  hash: md5
+  path: crew.csv
