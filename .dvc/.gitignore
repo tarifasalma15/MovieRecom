@@ -1,5 +1,7 @@
-/config.local
+config.local
 /tmp
 /cache
-/config.yml
+config.yml
 config
+.env
+
