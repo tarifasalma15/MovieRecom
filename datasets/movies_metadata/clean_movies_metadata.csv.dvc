@@ -1,0 +1,5 @@
+outs:
+- md5: db73e2f26001adecb7a8237d5872cfcf
+  size: 23115499
+  hash: md5
+  path: clean_movies_metadata.csv
