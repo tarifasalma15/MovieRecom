@@ -24,7 +24,7 @@ jobs:
   
         # Step 4: Merge changes from 'dev' to 'staging'
         - name: Merge dev into staging
-          run: git merge dev --allow-unrelated-histories
+          run: git merge origin/dev --allow-unrelated-histories
   
         # Step 5: Push changes to the 'staging' branch
         - name: Push to staging branch
