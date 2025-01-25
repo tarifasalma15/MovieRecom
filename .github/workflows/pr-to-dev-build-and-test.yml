@@ -1,6 +1,6 @@
-name: build and test for pull requet to dev
+name: build and test for pull request to dev
 
-# Trigger the workflow when a Pull Rrequet is created targeting the 'dev' branch
+# Trigger the workflow when a Pull Rrequest is created targeting the 'dev' branch
 on:
   pull_request:
     branches:
