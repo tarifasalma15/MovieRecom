@@ -5,6 +5,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    image: tarifasalma/movierecom-frontend:latest
     ports:
       - "3000:3000"
     volumes:
@@ -16,6 +17,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    image: tarifasalma/movierecom-backend:latest
     ports:
       - "8000:8000"
     volumes:
