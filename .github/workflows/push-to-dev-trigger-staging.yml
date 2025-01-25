@@ -1,4 +1,4 @@
-name: push to staging on dev push
+name: Push to staging on dev push
 
 # Trigger this workflow when there is a push to the 'dev' branch
 on:
