@@ -29,4 +29,6 @@ jobs:
 
     # Step 4: Run the React application
     - name: Run React application
-      run: npm start
+      run: |
+          cd frontend
+          npm start
