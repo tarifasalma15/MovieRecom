@@ -31,4 +31,4 @@ jobs:
     - name: Run React application
       run: |
           cd frontend
-          npm start
+          npm run build
