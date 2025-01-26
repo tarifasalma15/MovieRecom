@@ -42,13 +42,13 @@ jobs:
     # # Step 6: Install dependencies for FastAPI backend
     - name: Install backend dependencies
       run: |
-          cd backend
+          cd Backend
           pip install -r Backend/requirements.txt
 
     # Step 7: Run backend FastAPI application
     - name: Run FastAPI backend
       run: |
-          cd backend
+          cd Backend
           uvicorn app.main:app --reload 
 
     # # Step 8: Run integration tests
