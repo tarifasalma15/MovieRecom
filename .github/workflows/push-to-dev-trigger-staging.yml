@@ -29,7 +29,7 @@ jobs:
         # Step 4: Merge dev branch into staging
         - name: Merge dev into staging
           run: |
-            git merge origin/dev --no-ff --no-edit
+            git merge origin/dev --allow-unrelated-histories --no-ff --no-edit
       
         # Step 5: Push changes to the 'staging' branch
         - name: Push to staging branch
