@@ -43,7 +43,7 @@ jobs:
     - name: Install backend dependencies
       run: |
           cd Backend
-          pip install -r Backend/requirements.txt
+          pip install -r requirements.txt
 
     # Step 7: Run backend FastAPI application
     - name: Run FastAPI backend
