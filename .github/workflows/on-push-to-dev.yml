@@ -22,17 +22,16 @@ jobs:
             git remote set-url origin https://x-access-token:${{ secrets.GA_TOKEN }}@github.com/tarifasalma15/MovieRecom.git
 
   
-        # Step 3: Checkout the staging branch
-        - name: Checkout staging branch
-          run: |
-            git fetch origin staging
-            git checkout staging
-      
-        # Step 4: Merge dev branch into staging
+        # Step 3: Merge dev into staging using devmasx/merge-branch
         - name: Merge dev into staging
-          run: |
-            git merge origin/dev --allow-unrelated-histories --no-ff --no-edit
+          uses: devmasx/merge-branch@master
+          with:
+            type: now
+            from_branch: dev
+            target_branch: staging
+            github_token: ${{ secrets.GA_TOKEN }}
+
       
-        # Step 5: Push changes to the 'staging' branch
+        # Step 4: Push changes to the 'staging' branch
         - name: Push to staging branch
           run: git push origin staging
