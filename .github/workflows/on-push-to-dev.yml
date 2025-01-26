@@ -33,5 +33,5 @@ jobs:
           continue-on-error: true
       
         # # Step 4: Push changes to the 'staging' branch
-        # - name: Push to staging branch
-        #   run: git push origin staging
+        - name: Push to staging branch
+          run: git push origin staging
