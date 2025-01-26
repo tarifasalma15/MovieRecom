@@ -1,0 +1,38 @@
+name: Push to staging on dev push
+
+# Trigger this workflow when there is a push to the 'dev' branch
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  push-to-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+        # Step 1: Checkout the code from the 'dev' branch
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        # Step 2: Set up Git configuration
+        - name: Set up Git
+          run: |
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git remote set-url origin https://x-access-token:${{ secrets.GA_TOKEN }}@github.com/tarifasalma15/MovieRecom.git
+
+  
+        # Step 3: Checkout the staging branch
+        - name: Checkout staging branch
+          run: |
+            git fetch origin staging
+            git checkout staging
+      
+        # Step 4: Merge dev branch into staging
+        - name: Merge dev into staging
+          run: |
+            git merge origin/dev --allow-unrelated-histories --no-ff --no-edit
+      
+        # Step 5: Push changes to the 'staging' branch
+        - name: Push to staging branch
+          run: git push origin staging
