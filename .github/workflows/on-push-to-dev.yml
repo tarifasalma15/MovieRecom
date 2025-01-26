@@ -30,7 +30,7 @@ jobs:
             from_branch: dev
             target_branch: staging
             github_token: ${{ secrets.GITHUB_TOKEN }}
-
+          continue-on-error: true
       
         # # Step 4: Push changes to the 'staging' branch
         # - name: Push to staging branch
