@@ -1,5 +1,9 @@
+
 name: On pull request to dev build and run integration test 
 #comment
+
+name: Build and test for pull request to dev
+
 # Trigger the workflow when a Pull Rrequest is created targeting the 'dev' branch
 on:
   pull_request:
@@ -32,6 +36,30 @@ jobs:
       run: |
           cd frontend
           npm run build
+
+    # Step 5: Set up Python environment (for FastAPI backend)
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    # # Step 6: Install dependencies for FastAPI backend
+    # - name: Install backend dependencies
+    #   run: |
+    #       cd backend
+    #       pip install -r requirements.txt
+
+    # Step 7: Run backend FastAPI application
+    - name: Run FastAPI backend
+      run: |
+          cd Backend
+          uvicorn main:app --host 0.0.0.0 --port 8000 &
+
+    # # Step 8: Run integration tests
+    # - name: Run integration tests
+    #   run: |
+    #       cd frontend
+    #       npm run test 
 
     # Step 5: Set up Python environment (for FastAPI backend)
     - name: Set up Python
