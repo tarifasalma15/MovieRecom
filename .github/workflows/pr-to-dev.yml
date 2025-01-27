@@ -55,32 +55,21 @@ jobs:
           cd Backend
           uvicorn main:app --host 0.0.0.0 --port 8000 &
 
-    # # Step 8: Run integration tests
-    # - name: Run integration tests
-    #   run: |
-    #       cd frontend
-    #       npm run test 
+    # Step 8: Run integration tests
+    - name: Run integration tests
+      run: |
+          cd frontend
+          npm test -- --testPathPattern=src/tests/integration
 
-    # Step 5: Set up Python environment (for FastAPI backend)
+    # Step 9: Set up Python environment (for FastAPI backend)
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.9'
 
-    # # Step 6: Install dependencies for FastAPI backend
+    # # Step 10: Install dependencies for FastAPI backend
     - name: Install backend dependencies
       run: |
           cd Backend
           pip install -r requirements.txt
 
-    # # Step 7: Run backend FastAPI application
-    # - name: Run FastAPI backend
-    #   run: |
-    #       cd Backend
-    #       uvicorn app.main:app --reload 
-
-    # # Step 8: Run integration tests
-    # - name: Run integration tests
-    #   run: |
-    #       cd frontend
-    #       npm run test 
