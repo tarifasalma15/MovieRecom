@@ -30,6 +30,8 @@ jobs:
 
         # Step 4: Build the React frontend
         - name: Build React frontend
+          env:
+              NODE_OPTIONS: --openssl-legacy-provider
           run: |
               cd frontend
               npm run build
