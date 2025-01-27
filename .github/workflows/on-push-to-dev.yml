@@ -21,7 +21,13 @@ jobs:
             git config user.email "github-actions@github.com"
             git remote set-url origin https://x-access-token:${{ secrets.GA_TOKEN }}@github.com/tarifasalma15/MovieRecom.git
 
-  
+        # Step 3: Create or switch to the 'staging' branch
+        - name: Create or switch to staging branch
+          run: |
+            # Fetch all branches
+            git fetch --all
+            git checkout staging
+
         # # Step 3: Merge dev into staging using devmasx/merge-branch
         # - name: Merge dev into staging
         #   uses: devmasx/merge-branch@master
@@ -31,7 +37,12 @@ jobs:
         #     target_branch: staging
         #     github_token: ${{ secrets.GITHUB_TOKEN }}
         #   continue-on-error: true
-      
+
+
+      # Step 4: Merge dev into staging
+        - name: Merge dev into staging
+          run: |
+            git merge dev --no-ff -m "Merged dev into staging"
         # # Step 4: Push changes to the 'staging' branch
         - name: Push to staging branch
           run: git push origin staging
