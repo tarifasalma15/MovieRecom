@@ -1,4 +1,3 @@
-version: '3.7'
 
 services:
   frontend:
@@ -15,7 +14,7 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./Backend
       dockerfile: Dockerfile
     image: tarifasalma/movierecom-backend:latest
     ports:
