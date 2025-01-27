@@ -37,12 +37,14 @@ jobs:
         #     target_branch: staging
         #     github_token: ${{ secrets.GITHUB_TOKEN }}
         #   continue-on-error: true
-
-
-      # Step 4: Merge dev into staging
+  
+ 
+      
+        # Step 4: Merge dev branch into staging
         - name: Merge dev into staging
           run: |
-            git merge origin/dev  --allow-unrelated-histories
-        # # Step 4: Push changes to the 'staging' branch
+            git merge origin/dev --allow-unrelated-histories --no-ff --no-edit
+      
+        # Step 5: Push changes to the 'staging' branch
         - name: Push to staging branch
           run: git push origin staging
