@@ -2,6 +2,9 @@ name: Push to staging on dev push
 
 #comment1
 
+permissions:
+  contents: write
+
 # Trigger this workflow when there is a push to the 'dev' branch
 on:
   push:
