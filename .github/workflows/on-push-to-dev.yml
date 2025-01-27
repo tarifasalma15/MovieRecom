@@ -38,29 +38,4 @@ jobs:
               target_branch: 'staging' # Target branch is 'main'
               commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
         
-        # # Step 3: Create or switch to the 'staging' branch
-        # - name: Create or switch to staging branch
-        #   run: |
-        #     # Fetch all branches
-        #     git fetch origin 
-        #     git checkout staging
-
-        # # Step 3: Merge dev into staging using devmasx/merge-branch
-        # - name: Merge dev into staging
-        #   uses: devmasx/merge-branch@master
-        #   with:
-        #     type: now
-        #     from_branch: dev
-        #     target_branch: staging
-        #     github_token: ${{ secrets.GITHUB_TOKEN }}
-        #   continue-on-error: true
-  
- 
-      
-        # # Step 4: Merge dev branch into staging
-        # - name: Merge dev into staging
-        #   run: |
-        #     git merge origin/dev  --allow-unrelated-histories
-        # # # Step 4: Push changes to the 'staging' branch
-        # - name: Push to staging branch
-        #   run: git push origin staging
+        
