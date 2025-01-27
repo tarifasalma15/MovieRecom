@@ -10,6 +10,8 @@ on:
   workflow_run:
     workflows:
       - Build and test for pull request to dev 
+    types:
+      - completed
   push:
     branches:
       - dev
@@ -27,13 +29,21 @@ jobs:
           run: |
             git config user.name "github-actions"
             git config user.email "github-actions@github.com"
-
-        # Step 3: Create or switch to the 'staging' branch
-        - name: Create or switch to staging branch
-          run: |
-            # Fetch all branches
-            git fetch origin 
-            git checkout staging
+        
+        - name: merge from dev to main
+          uses: everlytic/branch-merge@1.1.2
+          with:
+              github_token: ${{ secrets.GA_TOKEN}}
+              source_ref: 'dev' # Source branch is 'dev'
+              target_branch: 'staging' # Target branch is 'main'
+              commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
+        
+        # # Step 3: Create or switch to the 'staging' branch
+        # - name: Create or switch to staging branch
+        #   run: |
+        #     # Fetch all branches
+        #     git fetch origin 
+        #     git checkout staging
 
         # # Step 3: Merge dev into staging using devmasx/merge-branch
         # - name: Merge dev into staging
@@ -47,10 +57,10 @@ jobs:
   
  
       
-        # Step 4: Merge dev branch into staging
-        - name: Merge dev into staging
-          run: |
-            git merge origin/dev  --allow-unrelated-histories
-        # # Step 4: Push changes to the 'staging' branch
-        - name: Push to staging branch
-          run: git push origin staging
+        # # Step 4: Merge dev branch into staging
+        # - name: Merge dev into staging
+        #   run: |
+        #     git merge origin/dev  --allow-unrelated-histories
+        # # # Step 4: Push changes to the 'staging' branch
+        # - name: Push to staging branch
+        #   run: git push origin staging
