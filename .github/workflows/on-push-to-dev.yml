@@ -7,6 +7,9 @@ permissions:
 
 # Trigger this workflow when there is a push to the 'dev' branch
 on:
+  workflow_run:
+    workflows:
+      - Build and test for pull request to dev 
   push:
     branches:
       - dev
