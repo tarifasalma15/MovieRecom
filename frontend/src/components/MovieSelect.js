@@ -1,5 +1,6 @@
-// src/components/
+// src/components/MovieSelect.js
 import React, { useState } from 'react';
+import './MovieSelect.css'; // Importation du fichier CSS
 
 const SelectMovie = () => {
   const [movie, setMovie] = useState('');
@@ -9,24 +10,33 @@ const SelectMovie = () => {
   };
 
   return (
-    <div>
-      <h1>Movie Recommendation System</h1>
-      <p>Type or select a movie to get recommendations:</p>
+    <div className="container">
+      <h1 className="title">Movie Recommendation System</h1>
+      <p className="subtitle">Type or select a movie to get recommendations:</p>
+
       <input
-      list="movies"
-      type="text"
-      placeholder="Type a movie name..."
-      value={movie}
-      onChange={handleSelectChange}
-    />
-    <datalist id="movies">
-      <option value="Inception"></option>
-      <option value="The Matrix"></option>
-      <option value="Titanic"></option>
-      <option value="Avatar"></option>
-      <option value="The Dark Knight"></option>
-    </datalist>
-        </div>
+        className="input"
+        list="movies"
+        type="text"
+        placeholder="Type a movie name..."
+        value={movie}
+        onChange={handleSelectChange}
+      />
+
+      <datalist id="movies">
+        <option value="Inception" />
+        <option value="The Matrix" />
+        <option value="Titanic" />
+        <option value="Avatar" />
+        <option value="The Dark Knight" />
+      </datalist>
+
+      {movie && (
+        <p className="selected-movie">
+          <strong>You selected:</strong> {movie}
+        </p>
+      )}
+    </div>
   );
 };
 

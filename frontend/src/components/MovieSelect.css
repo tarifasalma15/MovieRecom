@@ -1,0 +1,75 @@
+/* Fond général de la page */
+body {
+  background-color: #000000; /* Fond noir comme dans un cinéma */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #ffffff; /* Texte blanc pour un contraste optimal */
+}
+
+/* Conteneur principal */
+.container {
+  text-align: center;
+  padding: 40px;
+  background-color: #1c1c1c; /* Noir légèrement éclairci pour le conteneur */
+  border-radius: 15px;
+  width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9); /* Ombre forte pour un effet cinéma */
+  border: 2px solid #e50914; /* Bordure rouge rappelant Netflix/cinéma */
+}
+
+/* Titre */
+.title {
+  font-size: 3rem; /* Texte très grand pour un effet d'affiche */
+  color: #e50914; /* Rouge vif pour le titre */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Espacement pour un effet dramatique */
+}
+
+/* Sous-titre */
+.subtitle {
+  font-size: 1.5rem; /* Texte plus grand pour l'explication */
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Champ de saisie */
+.input {
+  padding: 15px;
+  width: 90%;
+  font-size: 1.2rem; /* Police plus grande pour le champ de saisie */
+  border: 2px solid #e50914;
+  border-radius: 10px;
+  outline: none;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(229, 9, 20, 0.5); /* Effet lumineux rouge */
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+/* Effet de focus sur l'input */
+.input:focus {
+  border-color: #ffffff; /* Bordure blanche au focus */
+  box-shadow: 0 0 20px #e50914; /* Effet lumineux rouge au focus */
+}
+
+/* Liste déroulante (options) */
+datalist option {
+  background-color: #1c1c1c; /* Fond assorti au conteneur */
+  color: #ffffff;
+  font-size: 1.2rem; /* Options avec texte plus grand */
+  padding: 10px;
+}
+
+/* Film sélectionné */
+.selected-movie {
+  margin-top: 30px;
+  font-size: 1.5rem; /* Texte plus grand pour le film sélectionné */
+  color: #e50914; /* Rouge vif pour attirer l'attention */
+  font-weight: bold;
+}
