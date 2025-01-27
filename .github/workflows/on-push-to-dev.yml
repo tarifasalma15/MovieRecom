@@ -42,7 +42,7 @@ jobs:
       # Step 4: Merge dev into staging
         - name: Merge dev into staging
           run: |
-            git merge dev --no-ff -m "Merged dev into staging"
+            git merge origin/dev --no-ff -m "Merged dev into staging"
         # # Step 4: Push changes to the 'staging' branch
         - name: Push to staging branch
           run: git push origin staging
