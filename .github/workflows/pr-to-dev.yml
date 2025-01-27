@@ -1,4 +1,6 @@
-name: Build and test for pull request to dev
+
+name: On pull request to dev build and run integration test 
+#comment
 
 # Trigger the workflow when a Pull Rrequest is created targeting the 'dev' branch
 on:
