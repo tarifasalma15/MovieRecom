@@ -48,11 +48,11 @@ jobs:
               cd Backend
               pip install -r requirements.txt
 
-        # Step 7: Run backend FastAPI server (optional for testing integration)
-        - name: Run FastAPI backend
-          run: |
-              cd Backend
-              uvicorn app.main:app --reload 
+        # # Step 7: Run backend FastAPI server (optional for testing integration)
+        # - name: Run FastAPI backend
+        #   run: |
+        #       cd Backend
+        #       uvicorn app.main:app --reload 
 
         # Step 8: Run all tests (frontend and backend)
         - name: Run all tests
