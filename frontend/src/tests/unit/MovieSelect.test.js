@@ -30,3 +30,11 @@ test('updates the selected movie on input change', () => {
 
   expect(selectedMovieText).toBeInTheDocument();
 });
+
+//Vérifie que le champ de recherche est vide par défaut
+
+test('renders input field empty by default', () => {
+  render(<SelectMovie />);
+  const inputElement = screen.getByPlaceholderText(/type a movie name/i);
+  expect(inputElement.value).toBe('');
+});
