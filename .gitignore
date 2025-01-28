@@ -5,3 +5,9 @@ datasets/**/*.crc
 datasets/**/_SUCCESS
 datasets_cleaning.ipynb
 raw_datasets
+mlartifacts
+mlruns
+mlflow.db
+movies_data.pkl
+python
+tfidf_vectorizer.pkl

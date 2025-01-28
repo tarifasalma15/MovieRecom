@@ -22,6 +22,9 @@ def main():
         .appName('Movie Pipeline') \
         .master("local[*]") \
         .getOrCreate()
+    
+    # spark.sparkContext.setLogLevel("DEBUG")
+
 
     # Ingestion
     credits, keywords, links, links_small, movies_metadata, ratings, ratings_small = load_datasets(spark)
@@ -34,6 +37,7 @@ def main():
     movies_metadata = transform_movies_metadata(movies_metadata)
     ratings = transform_ratings(ratings)
     ratings_small = transform_ratings_small(ratings_small)
+
 
     # Storage
     save_to_csv(cast, "datasets/cast")

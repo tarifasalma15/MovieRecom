@@ -1,0 +1,5 @@
+outs:
+- md5: 8485e759be73858edb619c7e4965b857
+  size: 16145912
+  hash: md5
+  path: part-00000-56332f72-4374-4cbf-a2ab-28a6ac570bca-c000.snappy.parquet
