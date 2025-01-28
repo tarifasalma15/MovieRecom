@@ -1,0 +1,5 @@
+outs:
+- md5: 6b9f55f5ccee555e38a4e1ae77e5c0c7
+  size: 3583410
+  hash: md5
+  path: part-00000-07ef1fbc-dfd2-4737-af18-e7739ed0da62-c000.csv
