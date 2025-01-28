@@ -1,0 +1,41 @@
+name: Push to staging on dev push
+
+#comment1
+
+permissions:
+  contents: write
+
+# Trigger this workflow when there is a push to the 'dev' branch
+on:
+  workflow_run:
+    workflows:
+      - Build and test for pull request to dev 
+    types:
+      - completed
+  push:
+    branches:
+      - dev
+jobs:
+  push-to-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+        # Step 1: Checkout the code from the 'dev' branch
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        # Step 2: Set up Git configuration
+        - name: Set up Git
+          run: |
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+        
+        - name: merge from dev to main
+          uses: everlytic/branch-merge@1.1.2
+          with:
+              github_token: ${{ secrets.GA_TOKEN}}
+              source_ref: 'dev' # Source branch is 'dev'
+              target_branch: 'staging' # Target branch is 'main'
+              commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
+        
+        

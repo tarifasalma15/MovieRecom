@@ -1,0 +1,25 @@
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: tarifasalma/movierecom-frontend:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app/frontend
+    working_dir: /app/frontend
+    command: npm start
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    image: tarifasalma/movierecom-backend:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+    working_dir: /app/backend
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
