@@ -3,22 +3,17 @@
 #
 # This file contains 1 function:
 # 
-# save_to_csv(dataframes: list, csv_paths: list) -> None: To save the dataframes to CSV files.
+# save_to_csv(dataframes: list) -> None: To save the dataframes to CSV files.
 # 
 
+from pyspark.sql.functions import col
 
-import os
 
 def save_to_csv(dataframe: list, csv_path: list) -> None:
     """
     To save the dataframe to CSV file.
     """
 
-    # Create the directory if it does not exist
-    directory = "datasets"
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    
     # Save the DataFrame as 1 CSV file, as Spark automatically partitions it if not mentioned
-    dataframe.coalesce(1).write.csv(csv_path, header=True, mode='overwrite')
+    dataframe.coalesce(1).write.parquet(csv_path, mode='overwrite')
     print(f"Data saved to {csv_path}")
